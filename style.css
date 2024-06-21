@@ -1,1 +1,86 @@
 @import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Karla:wght@200..800&display=swap");
+
+:root {
+    --color-grayish-blue: hsl(216, 30%, 68%);
+    --color-dark-violet: hsl(256, 26%, 20%);
+    --color-neutral-100: hsl(0, 0%, 98%);
+    --color-neutral-200: hsl(273, 4%, 51%);
+    --color-neutral-300: hsl(270, 9%, 17%);
+
+    --font-family-default: "Karla", sans-serif;
+    --font-family-serif: "DM Serif Display", serif;
+
+    --font-size-100: 0.875rem;
+    --font-size-200: 1rem;
+    --font-size-300: 1.25rem;
+    --font-size-400: 1.75rem;
+    --font-size-500: 3rem;
+    --font-size-600: 4.5rem;
+
+    --font-weight-normal: 400;
+    --font-weight-bold: 700;
+
+    --space-0: 0rem;
+    --space-100: 0.25rem;
+    --space-200: 0.5rem;
+    --space-300: 0.75rem;
+    --space-400: 1rem;
+    --space-500: 1.25rem;
+    --space-600: 1.5rem;
+    --space-700: 1.75rem;
+    --space-800: 2rem;
+    --space-900: 2.25rem;
+    --space-1000: 2.5rem;
+    --space-1100: 2.75rem;
+    --space-1200: 3rem;
+    --space-1300: 3.25rem;
+    --space-1400: 3.5rem;
+    --space-1500: 3.75rem;
+    --space-1600: 4rem;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+* {
+    margin: 0;
+}
+
+body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+    display: block;
+    max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+    font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    overflow-wrap: break-word;
+}
+
+#root,
+#__next {
+    isolation: isolate;
+}
