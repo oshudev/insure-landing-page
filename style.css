@@ -112,6 +112,7 @@ h4,
 h5,
 h6 {
     font-family: var(--font-family-serif);
+    letter-spacing: -0.015em;
 }
 
 body.no-scroll {
@@ -326,6 +327,10 @@ body.no-scroll {
     }
 }
 
+.viewport {
+    margin-top: 5rem;
+}
+
 .hero {
     color: var(--color-neutral-100);
     background-color: var(--color-dark-violet);
@@ -399,7 +404,6 @@ body.no-scroll {
         -2.143rem + 10.714vw,
         var(--font-size-600)
     );
-    letter-spacing: -0.015em;
     line-height: clamp(3rem, -0.429rem + 7.143vw, 4rem);
 }
 
@@ -471,9 +475,22 @@ body.no-scroll {
     }
 
     .hero .content-container {
+        position: relative;
         flex: 1 1 0;
         padding: 0;
+        padding-top: var(--space-1600);
         background: none;
+    }
+
+    .hero .content-container::before {
+        content: "";
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 9.375rem;
+        height: 1px;
+        background-color: var(--color-neutral-100);
     }
 
     .hero .text-container {
@@ -481,6 +498,80 @@ body.no-scroll {
     }
 
     .hero__callout {
+        margin-inline: 0;
+    }
+}
+
+.feature-panel {
+    margin-block: 8.75rem;
+    padding-inline: calc(var(--space-600) + 2px);
+    text-align: center;
+}
+
+.feature-panel h2 {
+    position: relative;
+    padding-block: var(--space-1000);
+    margin-bottom: var(--space-1000);
+    font-size: clamp(
+        var(--font-size-500),
+        -2.143rem + 10.714vw,
+        var(--font-size-600)
+    );
+    line-height: clamp(3rem, -0.429rem + 7.143vw, 4rem);
+}
+
+.feature-panel h2::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 9.375rem;
+    height: 1px;
+    display: block;
+    background-color: var(--color-neutral-200);
+}
+
+.features {
+    display: grid;
+    gap: var(--space-1400);
+}
+
+.feature .feature__img {
+    margin-bottom: calc(var(--space-900) + 1px);
+}
+
+.feature__img img {
+    margin-inline: auto;
+}
+
+.feature__content h3 {
+    font-size: var(--font-size-400);
+    margin-bottom: calc(var(--space-500) + 1px);
+}
+
+@media only screen and (min-width: 768px) {
+    .feature-panel {
+        margin-block: calc(19rem + 1px) 9.875rem;
+        text-align: left;
+    }
+
+    .feature-panel__container {
+        margin-inline: auto;
+        max-width: var(--container);
+    }
+
+    .feature-panel h2::before {
+        left: 0;
+        transform: translateX(0);
+    }
+
+    .features {
+        display: flex;
+        gap: var(--space-1200);
+    }
+
+    .feature__img img {
         margin-inline: 0;
     }
 }
