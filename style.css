@@ -37,6 +37,8 @@
     --space-1400: 3.5rem;
     --space-1500: 3.75rem;
     --space-1600: 4rem;
+
+    --container: 69.375rem;
 }
 
 *,
@@ -100,7 +102,16 @@ body {
     font-size: var(--font-size-200);
     color: var(--color-neutral-300);
     background-color: var(--color-neutral-100);
-    line-height: 1.6;
+    line-height: 1.625;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-family-serif);
 }
 
 body.no-scroll {
@@ -145,6 +156,7 @@ body.no-scroll {
 
 .header {
     position: absolute;
+    z-index: 999;
     display: block;
     top: 0;
     padding: var(--space-500);
@@ -157,7 +169,7 @@ body.no-scroll {
     align-items: center;
     justify-content: space-between;
     margin-inline: auto;
-    max-width: 69.375rem;
+    max-width: var(--container);
 }
 
 .header__menu-item--nav[aria-hidden="true"] {
@@ -311,5 +323,168 @@ body.no-scroll {
 
     .header__menu-item--button {
         display: block;
+    }
+}
+
+.viewport {
+    margin-top: 5rem;
+}
+
+.hero {
+    color: var(--color-neutral-100);
+    background-color: var(--color-dark-violet);
+}
+
+.desktop {
+    display: none;
+}
+
+.mobile {
+    display: block;
+}
+
+.hero .img-container {
+    max-height: 451px;
+}
+
+.hero .img-container .mobile {
+    width: 100%;
+}
+
+.hero .content-container {
+    position: relative;
+    z-index: 1;
+    padding: 5.875rem calc(var(--space-600) + 2px);
+}
+
+.hero .content-container::before,
+.hero .content-container::after {
+    content: "";
+    position: absolute;
+    display: block;
+    z-index: -1;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.hero .content-container::before {
+    top: 0;
+    left: 0;
+    width: 10.5rem;
+    height: 10.3125rem;
+    background-image: url("./images/bg-pattern-intro-left-mobile.svg");
+}
+
+.hero .content-container::after {
+    bottom: -176px;
+    right: 0;
+    width: 7.75rem;
+    height: 20.625rem;
+    background-image: url("./images/bg-pattern-intro-right-mobile.svg");
+}
+
+.hero .text-container {
+    margin-bottom: clamp(
+        calc(var(--space-700) + 2px),
+        1.445rem + 0.897vw,
+        var(--space-800)
+    );
+    text-align: center;
+}
+
+.hero .text-container h1 {
+    margin-bottom: clamp(
+        var(--space-400),
+        -1.571rem + 5.357vw,
+        var(--space-700)
+    );
+    font-size: clamp(
+        var(--font-size-500),
+        -2.143rem + 10.714vw,
+        var(--font-size-600)
+    );
+    letter-spacing: -0.015em;
+    line-height: clamp(3rem, -0.429rem + 7.143vw, 4rem);
+}
+
+.hero__callout {
+    width: 9.125rem;
+    margin-inline: auto;
+}
+
+@media only screen and (min-width: 440px) {
+    .hero .content-container {
+        background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4));
+    }
+
+    .hero .content-container::before,
+    .hero .content-container::after {
+        display: none;
+    }
+}
+
+@media only screen and (min-width: 768px) {
+    .desktop {
+        display: block;
+    }
+
+    .mobile {
+        display: none;
+    }
+
+    .hero {
+        position: relative;
+        z-index: 1;
+        padding-inline: calc(var(--space-600) + 2px);
+    }
+
+    .hero::before,
+    .hero::after {
+        content: "";
+        position: absolute;
+        display: block;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .hero::before {
+        z-index: -1;
+        bottom: -20.875rem;
+        left: 0;
+        width: 12.1875rem;
+        height: 31.5rem;
+        background-image: url("./images/bg-pattern-intro-left-desktop.svg");
+    }
+
+    .hero::after {
+        top: -5rem;
+        right: 0;
+        width: 27.25rem;
+        height: 37.125rem;
+        background-image: url("./images/bg-pattern-intro-right-desktop.svg");
+    }
+
+    .hero__container {
+        display: flex;
+        flex-direction: row-reverse;
+        column-gap: calc(var(--space-800) + 3px);
+        max-width: var(--container);
+        height: 37.5rem;
+        margin-inline: auto;
+        padding-top: 6.5625rem;
+    }
+
+    .hero .content-container {
+        flex: 1 1 0;
+        padding: 0;
+        background: none;
+    }
+
+    .hero .text-container {
+        text-align: left;
+    }
+
+    .hero__callout {
+        margin-inline: 0;
     }
 }
